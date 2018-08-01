@@ -61,17 +61,27 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.7.201606060606</version>
-				<executions>
-					<execution>
-						<id>pre-unit-test</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-						<configuration>
-							<propertyName>surefireArgLine</propertyName>
-						</configuration>
-					</execution>
+				
+				<configuration>
+				   <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+				   <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+				</configuration>
+				  <executions>
+				   <execution>
+				    <id>jacoco-initialize</id>
+				    <goals>
+				     <goal>prepare-agent</goal>
+				    </goals>
+				   </execution>
+				   <execution>
+				    <id>jacoco-site</id>
+				    <phase>package</phase>
+				    <goals>
+				     <goal>report</goal>
+				    </goals>
+				   </execution>
 				</executions>
+				
 			</plugin>
 		</plugins>
 	</build>
