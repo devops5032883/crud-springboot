@@ -13,11 +13,11 @@ pipeline{
     }
 
 stages{
-    stage('Preparation'){
-        steps{
-            git 'https://github.com/Kundan2015/crud-springboot.git'
-        }
-    }
+    //stage('Preparation'){
+    //    steps{
+    //        git 'https://github.com/Kundan2015/crud-springboot.git'
+   //      }
+    //}
     stage("Build and Unit Test") {
         steps {
             bat '''
