@@ -92,7 +92,36 @@
 			</plugin>
 		</plugins>
 	</build>
-
+<profiles>
+			<profile>
+				<id>DEV</id>
+				<properties>
+					<adminServerProtocol>t3</adminServerProtocol>
+					<adminServerPort>14001</adminServerPort>
+					<targetsName>edoCluster</targetsName>
+					<adminServerHostName>dev.sample.com</adminServerHostName>
+					<stage.dir>DEV</stage.dir>
+					<userId>tomcat</userId>
+					<userKeyFile>userKeyfile.secure</userKeyFile>
+					<userConfigFile>userConfigfile.secure</userConfigFile>
+					<env.target>dev</env.target>
+				</properties>
+			</profile>
+			<profile>
+				<id>TEST</id>
+				<properties>
+					<adminServerProtocol>t3</adminServerProtocol>
+					<adminServerPort>14001</adminServerPort>
+					<targetsName>edoCluster</targetsName>
+					<adminServerHostName>test.sample.com</adminServerHostName>
+					<stage.dir>TEST</stage.dir>
+					<userId>tomcat</userId>
+					<userKeyFile>userKeyfile.secure</userKeyFile>
+					<userConfigFile>userConfigfile.secure</userConfigFile>
+					<env.target>test</env.target>
+				</properties>
+			</profile>
+	</profiles>
 	<reporting>
 		<plugins>
 		<plugin>
