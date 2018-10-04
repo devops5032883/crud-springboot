@@ -15,7 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.4.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -51,9 +51,9 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.sonarsource.sonarqube/sonar-plugin-api -->
 		<dependency>
-		    <groupId>org.sonarsource.sonarqube</groupId>
-		    <artifactId>sonar-plugin-api</artifactId>
-		    <version>6.7</version>
+			<groupId>org.sonarsource.sonarqube</groupId>
+			<artifactId>sonar-plugin-api</artifactId>
+			<version>6.7</version>
 		</dependency>
 
 	</dependencies>
@@ -68,63 +68,65 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.7.201606060606</version>
-				
+
 				<configuration>
-				   <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
-				   <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+					<destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+					<dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
 				</configuration>
-				  <executions>
-				   <execution>
-				    <id>jacoco-initialize</id>
-				    <goals>
-				     <goal>prepare-agent</goal>
-				    </goals>
-				   </execution>
-				   <execution>
-				    <id>jacoco-site</id>
-				    <phase>package</phase>
-				    <goals>
-				     <goal>report</goal>
-				    </goals>
-				   </execution>
+				<executions>
+					<execution>
+						<id>jacoco-initialize</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-site</id>
+						<phase>package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
 				</executions>
-				
+
 			</plugin>
 		</plugins>
 	</build>
-<profiles>
-			<profile>
-				<id>DEV</id>
-				<properties>
-					<adminServerProtocol>t3</adminServerProtocol>
-					<adminServerPort>14001</adminServerPort>
-					<targetsName>edoCluster</targetsName>
-					<adminServerHostName>dev.sample.com</adminServerHostName>
-					<stage.dir>DEV</stage.dir>
-					<userId>tomcat</userId>
-					<userKeyFile>userKeyfile.secure</userKeyFile>
-					<userConfigFile>userConfigfile.secure</userConfigFile>
-					<env.target>dev</env.target>
-				</properties>
-			</profile>
-			<profile>
-				<id>TEST</id>
-				<properties>
-					<adminServerProtocol>t3</adminServerProtocol>
-					<adminServerPort>14001</adminServerPort>
-					<targetsName>edoCluster</targetsName>
-					<adminServerHostName>test.sample.com</adminServerHostName>
-					<stage.dir>TEST</stage.dir>
-					<userId>tomcat</userId>
-					<userKeyFile>userKeyfile.secure</userKeyFile>
-					<userConfigFile>userConfigfile.secure</userConfigFile>
-					<env.target>test</env.target>
-				</properties>
-			</profile>
+	<profiles>
+		<profile>
+			<id>DEV</id>
+			<properties>
+				<adminServerProtocol>http</adminServerProtocol>
+				<adminServerPort>8080</adminServerPort>
+				<adminServerHostName>10.119.116.89</adminServerHostName>
+				<userId>dev</userId>
+				<userPassword>dev</userPassword>
+			</properties>
+		</profile>
+		<profile>
+			<id>TEST</id>
+			<properties>
+				<adminServerProtocol>http</adminServerProtocol>
+				<adminServerPort>8001</adminServerPort>
+				<adminServerHostName>10.119.116.89</adminServerHostName>
+				<userId>test</userId>
+				<userPassword>test</userPassword>
+			</properties>
+		</profile>
+		<profile>
+			<id>PROD</id>
+			<properties>
+				<adminServerProtocol>http</adminServerProtocol>
+				<adminServerPort>8080</adminServerPort>
+				<adminServerHostName>10.119.116.89</adminServerHostName>
+				<userId>prod</userId>
+				<userPassword>prod</userPassword>
+			</properties>
+		</profile>
 	</profiles>
 	<reporting>
 		<plugins>
-		<plugin>
+			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.7.201606060606</version>
@@ -136,6 +138,6 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
-			</plugins>
+		</plugins>
 	</reporting>
 </project>
