@@ -92,6 +92,18 @@
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>SYNPS6144348-releases</name>
+			<url>http://10.119.116.89:8040/artifactory/libs-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>SYNPS6144348-snapshots</name>
+			<url>http://10.119.116.89:8040/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<profiles>
 		<profile>
 			<id>DEV</id>
